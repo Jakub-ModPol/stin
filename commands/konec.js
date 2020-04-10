@@ -42,8 +42,8 @@ module.exports.run = async (bot, message, args) => {
         logChannel.send(embed)
                      
         logChan.send(promptEmbed)
-        .then(m => m.delete(30000));       
-        message.channel.send(args.join(" "));
+        .then(m => m.delete(30000))
+        logChannel.send(args.join(" "));
     }
 
     if (message.member.roles.has("671814447395766273")) { //Země
@@ -51,8 +51,8 @@ module.exports.run = async (bot, message, args) => {
         logChannel.send(embed)
                      
         logChan.send(promptEmbed)
-        .then(m => m.delete(30000));  
-        message.channel.send(args.join(" "));
+        .then(m => m.delete(30000))  
+        logChannel.send(args.join(" "));
     }
 
     if (message.member.roles.has("671814292911423551")) { //Oheň
@@ -60,8 +60,8 @@ module.exports.run = async (bot, message, args) => {
         logChannel.send(embed)
                      
         logChan.send(promptEmbed)
-        .then(m => m.delete(30000));  
-        message.channel.send(args.join(" "));
+        .then(m => m.delete(30000))
+        logChannel.send(args.join(" "));
     }
 
     if (message.member.roles.has("671814391896735770")) { //Vzduch
@@ -69,8 +69,8 @@ module.exports.run = async (bot, message, args) => {
         logChannel.send(embed)
                      
         logChan.send(promptEmbed)
-        .then(m => m.delete(30000));  
-        message.channel.send(args.join(" "));
+        .then(m => m.delete(30000)) 
+        logChannel.send(args.join(" "));
     }
 
     if (message.member.roles.has("696378535069220876")) { //TEST

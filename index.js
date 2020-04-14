@@ -3,11 +3,11 @@ const fs = require('fs');
 const cron = require("node-cron");
 const bot = new Discord.Client();
 
-
-const token = '//';
+const token = 'xxx';
+//const token = 'xxx';
 bot.on('ready', () =>{
     console.log(`Logged in as ${bot.user.tag}!`)
-    bot.user.setActivity('Stínohra', {type: 'WATCHING'});
+    bot.user.setActivity('Rektorát', {type: 'WATCHING'});
             bot.user.setStatus(' ');
 })
 
@@ -31,7 +31,7 @@ fs.readdir("commands", (err, files) => {
 bot.on('message', async message => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
-    let prefix = "stin"; //prefix
+    let prefix = "-"; //prefix
     let messageArray = message.content.split(' ');
     let cmd = messageArray[0].toLowerCase(); //Na tomto řádku jsem přidal .toLowerCase().
     let args = messageArray.splice(1);
@@ -44,17 +44,16 @@ bot.on('message', async message => {
 })  
 
 
-var Welcome = require("discord-welcome");
-
 bot.on("guildMemberAdd", user => {
-Welcome(bot, {
-	privatemsg : "Vítej na stínohra.eu!",
-	publicmsg : "**Vítej na stínohra.eu**, " + user + " :tada::hugging:! Rádi tě vidíme a doufáme, že se ti v naší Stínové akademii bude líbit! V případě dotazů se obrať na oranžové členy vedení. Pro začátek ti doporučíme podívat se do <#630423621764120586> a <#630807032143806484>.",
-	publicchannel : "🧾přijímací-sál"
-	})
     let memberRole = user.guild.roles.find("name", "NOVÁČCI");
     user.addRole(memberRole);
-})
+
+    const channel = user.guild.channels.find(channel => channel.name === "🧾přijímací-sál")
+    channel.send("**Vítej na stínohra.eu**, " + user + " :tada::hugging:! Rádi tě vidíme a doufáme, že se ti v naší Stínové akademii bude líbit! V případě dotazů se obrať na oranžové členy vedení. Pro začátek ti doporučíme podívat se do <#630423621764120586> a <#697394115721166909>."); 
+    user.send("**Vítej na stínohra.eu** :tada::hugging:! Určitě se podívej do <#630423621764120586> a <#697394115721166909>. Pokud by sis s něčím nevěděl rady, ozvi se oranžovým členkám vedení, a nebo se zeptej ostatních, určitě ti rádi pomohou. :wink::heart:")
+});
+
+
 
     
 bot.login(token);
